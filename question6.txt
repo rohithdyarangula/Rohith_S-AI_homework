@@ -1,0 +1,23 @@
+Question Title:Simplify the Compilation Process
+Question link:https://my.newtonschool.co/playground/code/9kh4giios2j4?lecture_hash=t5qc0u6ap8tg
+
+Solution:
+
+cat > build.sh << 'EOF'
+#!/bin/bash
+gcc hello.c -o hello
+EOF
+chmod +x build.sh
+./build.sh
+./hello
+
+Approach:
+
+The build script needs a C file to compile, so I created hello.c using cat > hello.c << 'EOF'. If the file already exists in your environment, this step can be skipped. The code includes stdio.h so printf works, and printf("Hello from C\n") prints the required text followed by a newline.
+Next, I created build.sh the same way. The text between the EOF markers is saved into the file instead of being run by bash.
+On the first line of build.sh, I added #!/bin/bash. This is the shebang. It tells the system to run the file using bash.
+On the second line, I added gcc hello.c -o hello. This is the compile command. gcc is the C compiler, hello.c is the source file, and -o hello sets the name of the output executable to hello. Putting it in a script means nobody has to retype it.
+A new file is not allowed to run as a program by default, so I used chmod +x build.sh. The +x option adds the execute permission.
+I ran ./build.sh. It prints nothing if the compilation succeeds, and it creates the hello executable in the current directory.
+Finally, I ran ./hello. This runs the compiled program, and the output was Hello from C.
+
