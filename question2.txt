@@ -1,0 +1,22 @@
+Question Title:Create a Project Folder Structure
+Question link:https://my.newtonschool.co/playground/code/jipp2htnvrww?lecture_hash=v210chxjexei
+
+Solution:
+
+cat create-service
+rm -rf service
+echo 'mkdir -p service/controllers service/models service/routes service/middleware' > create-service
+echo 'echo "API Service" > service/README.md' >> create-service
+echo "echo 'console.log(\"Server started\");' > service/server.js" >> create-service
+chmod +x create-service
+./create-service
+
+
+Approach:
+I used cat create-service to look at the broken script.
+The error said old directory names still exist, so I used rm -rf service to delete the old service folder. The -r option removes folders along with everything inside them, and -f stops it from asking for confirmation.
+Next, I rewrote the script so it creates the correct folders. I used echo 'mkdir -p service/controllers service/models service/routes service/middleware' > create-service.mkdir -p creates all four folders (and service itself) in one command.
+Then I added the line that creates the README. I used echo 'echo "API Service" > service/README.md' >> create-service.
+After that, I added the line that creates server.js. I used echo "echo 'console.log(\"Server started\");' > service/server.js" >> create-service. The backslashes before the double quotes make them part of the text, so the line ends up exactly as the task expects.
+The script needed permission to run, so I used chmod +x create-service to make it executable.
+I ran the fixed script with ./create-service.
