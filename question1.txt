@@ -1,0 +1,21 @@
+Question Title: Advanced File Management
+Question link:https://my.newtonschool.co/playground/code/4ks5o139cfoh?lecture_hash=v210chxjexei
+
+Solution:
+
+
+mkdir project-files
+cd project-files
+touch report.docx summary.docx draft.docx
+cp report.docx report_backup.docx
+mkdir old
+mv draft.docx old/
+mv summary.docx final_summary.docx
+cp final_summary.docx old/
+cd project-files
+rm report_backup.docx
+
+
+Approach:
+First,I created a new directory named project-files using the mkdir project-files command and navigated into it using cd project-files.Inside the directory, I created the three required starter files using the touch report.docx summary.docx draft.docx command.Next, I made a temporary duplicate of report.docx named report_backup.docx using cp report.docx report_backup.docx.To handle the archive structure, I created a new subfolder called old using mkdir old, and then moved draft.docx inside it using mv draft.docx old/.I then renamed summary.docx to final_summary.docx using the mv summary.docx final_summary.docx command.
+After renaming, I copied final_summary.docx into the old/ folder as well using cp final_summary.docx old/.Finally, since the temporary backup was no longer required, I removed report_backup.docx using the rm report_backup.docx command.
