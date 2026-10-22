@@ -1,0 +1,19 @@
+Question Title:Execute a Python Script Directly
+Question link:https://my.newtonschool.co/playground/code/mepmefz373b4?lecture_hash=t5qc0u6ap8tg
+
+Solution:
+
+cat > hello.py << 'EOF'
+#!/usr/bin/env python3
+print("Hello from Python")
+EOF
+chmod +x hello.py
+./hello.py
+
+Approach:
+
+I needed to create the file hello.py. Since the solution runs inside a shell script, I used cat > hello.py << 'EOF' to write the Python code into the file. The text between the two EOF markers is saved into the file instead of being run by bash.
+Inside the file, I added #!/usr/bin/env python3 as the very first line. This is called a shebang. It tells the operating system to run the file using python3, and without it, ./hello.py would not know which program should run the file.
+On the second line, I added print("Hello from Python"). This prints the required text to the screen.
+A file is not allowed to run as a program by default, so I used chmod +x hello.py. The +x option adds the execute permission to the file.
+Finally, I ran ./hello.py. The ./ means the file is in the current directory. The system read the shebang, started python3, and the output was Hello from Python.
