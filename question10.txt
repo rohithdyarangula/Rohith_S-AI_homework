@@ -1,0 +1,23 @@
+Question title:The Internship Project Setup
+Question link:https://my.newtonschool.co/playground/code/5i36axzh7cl2?lecture_hash=mi7y4g3am46y
+
+Solution:
+
+cd client-app
+git init
+echo "<html></html>" > index.html
+echo "console.log('app');" > app.js
+git add index.html app.js
+git commit -m "Initial client files"
+git remote add origin https://github.com/startup/client-app.git
+git push -u origin main
+git log
+
+Approach:
+
+Navigate to the target directory: Use cd client-app to move into the specified folder.
+Initialize Git: Run git init to set up a new Git repository in client-app.
+Populate placeholder files: Add mock content into both files using echo "<html></html>" > index.html and echo "console.log('app');" > app.js.Stage specific files: Use git add index.html app.js to stage only those two files while ignoring temp.js and .DS_Store.Commit staged changes: Run git commit -m "Initial client files" with the exact required commit message.
+Set up the remote URL: Execute git remote add origin [https://github.com/startup/client-app.git](https://github.com/startup/client-app.git) to link your local repository to the target remote.
+Push to main: Use git push -u origin main to push your initial commit to the main branch.
+Verify history: Run git log once to output the commit history.
