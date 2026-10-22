@@ -1,0 +1,39 @@
+Question title :Build Pipeline Directory Tree
+Question link:https://my.newtonschool.co/playground/code/r2ui5gw5lhqt?lecture_hash=n9ynhcuvkld8
+
+Solution:
+
+mkdir pipeline
+mkdir pipeline/stages
+mkdir pipeline/env
+mkdir pipeline/artifacts
+
+mkdir pipeline/stages/build
+mkdir pipeline/stages/test
+mkdir pipeline/stages/test/unit
+mkdir pipeline/stages/test/unit/integration
+
+mkdir pipeline/env/staging
+mkdir pipeline/env/prod
+mkdir pipeline/artifacts/old
+
+chmod 750 pipeline/stages
+chmod 770 pipeline/artifacts
+chmod 700 pipeline/env
+
+cd pipeline/stages/build/
+touch app.py config.json NOTES.md
+echo "Build stage initialized." > NOTES.md
+
+cd ../../../pipeline/artifacts/old/
+touch build.log test.log deploy.log
+chmod 640 build.log test.log deploy.log
+
+Approach:
+
+First, the base root folder is created: pipeline.Next, its direct subdirectories are created: stages, env, and artifacts.Finally, deeper nested folders are created step-by-step: build and test inside stages, unit inside test, integration inside unit, and so on.
+Permissions were given to mentioned folders and files.
+In-Directory File Generation
+Instead of using long relative paths from the root, the script navigates into the target directory to work locally:cd pipeline/stages/build/ moves execution inside the build folder.
+touch creates the three required files (app.py, config.json, NOTES.md).
+Standard output redirection (echo ... > NOTES.md) populates NOTES.md.cd ../../../pipeline/artifacts/old/ steps up three levels out of pipeline/stages/build/ back to the workspace root, then steps down directly into pipeline/artifacts/old/.The log files are created using touch.chmod 640 sets the log file permissions
