@@ -1,0 +1,16 @@
+Question Title:The Missing Project Credentials
+Question link:https://my.newtonschool.co/playground/code/7x83ezx6nimm
+
+Solution :
+
+cd EventApp
+ls -AR
+cat config/.env > db_password.txt
+cat db_password.txt
+
+Approach:
+
+I used cd EventApp to move into the project directory. 
+I used ls -AR to look for the hidden file. -A shows hidden files (names starting with a dot) but leaves out the . and .. entries. -R makes ls go through every subdirectory, so nested folders are shown too. The output prints each folder as a heading like ./config:, with its files listed underneath. In this case, I saw .env listed under ./config:, so its path is config/.env.
+I used cat config/.env > db_password.txt to copy the contents. This creates only db_password.txt. The password is read from the existing file.
+Finally, I ran cat db_password.txt to confirm the new file contains the full line, for example DB_PASSWORD=EvT_x9Kp!7m.
