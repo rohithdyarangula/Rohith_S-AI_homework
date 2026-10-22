@@ -1,0 +1,19 @@
+Question Title:Deployment Project Permissions
+Question link:https://my.newtonschool.co/playground/code/3wz3wv7c89fo?lecture_hash=vifkrugjcwth
+
+Solution:
+
+chmod 700 deployment/app/*.py
+chmod -R 770 deployment/datasets
+chmod 644 deployment/docs/OVERVIEW.md
+chmod 755 deployment/bin/*.sh
+
+
+Approach:
+
+For the Python files, I needed to grant read, write, and execute permissions to the owner, but no access to group and others. Calculating 4+2+1=7 for owner and 0 for the rest gives 700. I ran chmod 700 deployment/app/*.py to update all .py files in the app/ folder.
+For the datasets directory, I needed to grant read, write, and execute permissions to both owner 
+and group(4+2+1=7), but no access to others . To apply 770 to both the datasets/ folder and everything inside it, I used the recursive flag and ran chmod -R 770 deployment/datasets.
+For OVERVIEW.md, I needed to give the owner read and write access (6) and group and others read-only access (4). This gives 644, so I ran chmod 644 deployment/docs/OVERVIEW.md.
+For the shell scripts, I needed owner to have read, write, and execute permissions (7), while group and others required read and execute permissions (5). This gives 755, so I ran chmod 755 deployment/bin/*.sh to update all .sh files in the bin/ directory.
+
